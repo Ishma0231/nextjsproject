@@ -16,7 +16,7 @@ export default function CartPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
         {/* LEFT (cart items list) */}
-        <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-md border border-black/10">
+        <div className="lg:col-span-2 bg-white rounded-xl p-3 shadow-md border border-black/10">
 
           {items.length === 0 && (
             <EmptyCart/>
@@ -29,8 +29,9 @@ export default function CartPage() {
             >
               {/* Image */}
               <div className="w-20 h-20 mb-0 rounded overflow-hidden bg-gray-100 flex items-center justify-center">
-                <img src={item.thumbnail} className="object-contain w-full h-full" />
+                <img src={item.thumbnail} className="object-contain w-20 h-20" />
               </div>
+              
 
               {/* Details */}
               <div className="flex-1 py-1">
@@ -66,7 +67,7 @@ export default function CartPage() {
                 className="text-red-500 text-xl ml-4"
                 onClick={() => dispatch(removeFromCart(item.id))}
               >
-                🗑
+                <i className="fa-solid fa-delete-left"></i>
               </button>
             </div>
           ))}
