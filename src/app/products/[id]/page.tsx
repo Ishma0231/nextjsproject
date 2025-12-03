@@ -1,4 +1,5 @@
 import { ProductService } from "@/services/productservice";
+import TopRated from "@/components/TopRated.jsx"
 
 interface ProductDetailProps {
   params: Promise<{ id: string }>;
@@ -51,6 +52,7 @@ export default async function ProductDetail({ params }: ProductDetailProps) {
         </div>
 
       </div>
+      <TopRated/>
     </div>
   );
 }

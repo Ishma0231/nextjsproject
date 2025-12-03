@@ -29,8 +29,8 @@ export default async function RecommendedProducts() {
 
   return (
     <div className="px-6 pt-16 pb-10 shadow-[7px_15px_20px_2px_rgba(0,0,0,0.3)] ">
-      <h2 className="text-4xl font-bold mb-6 text-black font-serif italic text-center">
-        <span className="text-[#91612e] text-4xl">E</span>luré Exclusives
+      <h2 className="text-4xl font-bold mb-6 text-black font-serif italic ">
+        <span className="text-[#91612e] text-4xl">T</span>op picks
       </h2>
 
       {/* MOBILE HORIZONTAL ROW */}
