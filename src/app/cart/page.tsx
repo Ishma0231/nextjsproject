@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCart } from "@/store/store";
 import { addToCart, decreaseQty, removeFromCart } from "@/store/cartSlice";
@@ -16,7 +16,7 @@ export default function CartPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
         {/* LEFT (cart items list) */}
-        <div className="lg:col-span-2 bg-white rounded-xl p-3 shadow-md border border-black/10">
+        <div className="lg:col-span-2 bg-white p-3 shadow-md border border-black/10">
 
           {items.length === 0 && (
             <EmptyCart/>
@@ -35,7 +35,7 @@ export default function CartPage() {
 
               {/* Details */}
               <div className="flex-1 py-1">
-                <h2 className="text-lg font-semibold text-black">{item.title}</h2>
+                <Link href={`/products/${item.id}`}><h2 className=" font-semibold text-black">{item.title}</h2></Link>
 
                 {/* Quantity controls */}
                 <div className="flex items-center gap-3 mt-3">
