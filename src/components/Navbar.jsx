@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -10,6 +9,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const cartQty = useSelector(selectCartQuantity);
+
+  // Function to close the mobile menu
+  const closeMobileMenu = () => setOpen(false);
+
+  // Function to toggle the mobile menu (for the hamburger icon)
+  const toggleMobileMenu = () => setOpen((prev) => !prev);
 
   return (
     <>
@@ -73,16 +78,24 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* HAMBURGER */}
+          {/* HAMBURGER - TOGGLE LOGIC ADDED */}
           <button
             className="text-3xl md:hidden ml-2"
-            onClick={() => setOpen(true)}
+            onClick={toggleMobileMenu} // Changed to toggleMobileMenu
           >
             <i className="fa-solid fa-bars"></i>
           </button>
 
         </div>
       </nav>
+
+      {/* MOBILE MENU BACKDROP/OVERLAY - NEW ELEMENT */}
+      {open && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-30 md:hidden" 
+          onClick={closeMobileMenu} // Click on the backdrop closes the menu
+        ></div>
+      )}
 
       {/* MOBILE SLIDE-IN LEFT MENU */}
       <div
@@ -91,34 +104,35 @@ export default function Navbar() {
       >
         <div className="p-6 space-y-6 text-lg relative">
 
-          {/* Close Button */}
+          {/* Close Button (already set up correctly) */}
           <button
             className="text-3xl absolute top-4 right-4"
-            onClick={() => setOpen(false)}
+            onClick={closeMobileMenu} // Changed to closeMobileMenu
           >
             <i className="fa-solid fa-xmark"></i>
           </button>
 
-          <Link href="/Home" onClick={() => setOpen(false)} className="block">
+          {/* Links: Use closeMobileMenu instead of setOpen(false) for consistency */}
+          <Link href="/Home" onClick={closeMobileMenu} className="block pt-20">
             Home
           </Link>
 
-          <Link href="/about" onClick={() => setOpen(false)} className="block">
+          <Link href="/about" onClick={closeMobileMenu} className="block">
             About
           </Link>
 
-          <Link href="/contact" onClick={() => setOpen(false)} className="block">
+          <Link href="/contact" onClick={closeMobileMenu} className="block">
             Contact
           </Link>
 
           <details>
             <summary className="cursor-pointer">Categories</summary>
             <div className="flex flex-col pl-4 mt-2 gap-2">
-              <Link href="/men" onClick={() => setOpen(false)}>Men</Link>
-              <Link href="/women" onClick={() => setOpen(false)}>Women</Link>
-              <Link href="/categories/beauty" onClick={() => setOpen(false)}>Beauty</Link>
-              <Link href="/categories/fragrances" onClick={() => setOpen(false)}>Fragrances</Link>
-              <Link href="/electronics" onClick={() => setOpen(false)}>Electronics</Link>
+              <Link href="/men" onClick={closeMobileMenu}>Men</Link>
+              <Link href="/women" onClick={closeMobileMenu}>Women</Link>
+              <Link href="/categories/beauty" onClick={closeMobileMenu}>Beauty</Link>
+              <Link href="/categories/fragrances" onClick={closeMobileMenu}>Fragrances</Link>
+              <Link href="/electronics" onClick={closeMobileMenu}>Electronics</Link>
             </div>
           </details>
         </div>
