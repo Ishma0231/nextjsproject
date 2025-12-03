@@ -1,5 +1,6 @@
 import { ProductService } from "@/services/productservice.js";
 import ProductCard from "@/components/Productcard";
+import TopRated from "@/components/TopRated";
 
 
 export default async function Electronics() {
@@ -26,7 +27,7 @@ export default async function Electronics() {
           <ProductCard key={item.id} item={item} />
         ))}
       </div>
-      
+      <TopRated/>
     </div>
   );
 }

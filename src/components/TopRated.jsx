@@ -1,7 +1,7 @@
 import { ProductService } from "@/services/productservice";
 import ProductCard from "@/components/Productcard";
 
-export default async function RecommendedProducts() {
+export default async function TopRated() {
 
   const allowedCategories = [
     "mens-shirts",
