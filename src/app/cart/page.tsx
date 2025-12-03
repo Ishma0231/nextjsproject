@@ -58,7 +58,7 @@ export default function CartPage() {
               </div>
 
               {/* Price */}
-              <p className="text-lg font-semibold text-amber-500">
+              <p className="font-semibold text-amber-500">
                 ${(item.price * item.quantity).toFixed(2)}
               </p>
 
